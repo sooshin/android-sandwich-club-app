@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -54,6 +55,12 @@ public class DetailActivity extends AppCompatActivity {
                 .into(ingredientsIv);
 
         ((CollapsingToolbarLayout) findViewById(R.id.collapsing_toobar_layout)).setTitle(sandwich.getMainName());
+
+        // Show back button in Collapsing Toolbar
+        Toolbar toolbar = findViewById(R.id.app_bar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private void closeOnError() {
@@ -95,5 +102,14 @@ public class DetailActivity extends AppCompatActivity {
             }
         }
 
+    }
+
+    /**
+     * When the arrow icon in the app bar is clicked, finishes DetailActivity.
+     */
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }
