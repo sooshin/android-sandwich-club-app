@@ -26,6 +26,7 @@
                 android:id="@+id/image_iv"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
+                app:layout_collapseMode="parallax"
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/sandwich_picture_content_description"
                 android:scaleType="centerCrop" />
