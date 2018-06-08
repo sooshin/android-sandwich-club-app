@@ -2,6 +2,7 @@ package com.udacity.sandwichclub;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -48,7 +49,7 @@ public class DetailActivity extends AppCompatActivity {
                 .load(sandwich.getImage())
                 .into(ingredientsIv);
 
-        setTitle(sandwich.getMainName());
+        ((CollapsingToolbarLayout) findViewById(R.id.collapsing_toobar_layout)).setTitle(sandwich.getMainName());
     }
 
     private void closeOnError() {
