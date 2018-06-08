@@ -4,12 +4,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 import com.udacity.sandwichclub.model.Sandwich;
 import com.udacity.sandwichclub.utils.JsonUtils;
+
+import java.util.List;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -44,7 +48,7 @@ public class DetailActivity extends AppCompatActivity {
             return;
         }
 
-        populateUI();
+        populateUI(sandwich);
         Picasso.with(this)
                 .load(sandwich.getImage())
                 .into(ingredientsIv);
@@ -57,7 +61,39 @@ public class DetailActivity extends AppCompatActivity {
         Toast.makeText(this, R.string.detail_error_message, Toast.LENGTH_SHORT).show();
     }
 
-    private void populateUI() {
+    private void populateUI(Sandwich sandwich) {
+        TextView alsoKnownTv = findViewById(R.id.also_known_tv);
+        TextView alsoKnownLabelTv = findViewById(R.id.also_known_label_tv);
+        List<String> alsoKnownList = sandwich.getAlsoKnownAs();
+        if (alsoKnownList != null) {
+            for (String alsoKnown: alsoKnownList) {
+                alsoKnownTv.append(alsoKnown + "\n");
+            }
+        } else {
+            alsoKnownLabelTv.setVisibility(View.GONE);
+            alsoKnownTv.setVisibility(View.GONE);
+        }
+
+        TextView originTv = findViewById(R.id.origin_tv);
+        TextView originLabelTv = findViewById(R.id.origin_label_tv);
+        String originString = sandwich.getPlaceOfOrigin();
+        if (originString != null) {
+            originTv.setText(originString);
+        } else {
+            originLabelTv.setVisibility(View.GONE);
+            originTv.setVisibility(View.GONE);
+        }
+
+        TextView descriptionTv = findViewById(R.id.description_tv);
+        descriptionTv.setText(sandwich.getDescription());
+
+        TextView ingredientsTv = findViewById(R.id.ingredients_tv);
+        List<String> ingredientsList = sandwich.getIngredients();
+        if (ingredientsList != null) {
+            for (String ingredients: ingredientsList) {
+                ingredientsTv.append(ingredients + "\n");
+            }
+        }
 
     }
 }
