@@ -8,12 +8,14 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- Detail activity theme -->
     <style name="DetailTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- Style for the label text view -->
     <style name="LabelTextViewStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -24,7 +26,8 @@
         <item name="android:layout_marginTop">@dimen/activity_vertical_margin</item>
     </style>
 
-    <style name="TextViewStyle">
+    <!-- Style for the detail text view -->
+    <style name="DetailTextViewStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">@dimen/activity_vertical_margin</item>

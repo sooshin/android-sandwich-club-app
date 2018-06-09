@@ -64,7 +64,7 @@
 
             <TextView
                 android:id="@+id/origin_tv"
-                style="@style/TextViewStyle"
+                style="@style/DetailTextViewStyle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/origin_label_tv"
@@ -96,7 +96,7 @@
 
             <TextView
                 android:id="@+id/description_tv"
-                style="@style/TextViewStyle"
+                style="@style/DetailTextViewStyle"
                 android:layout_marginBottom="24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -106,7 +106,7 @@
 
             <TextView
                 android:id="@+id/ingredients_tv"
-                style="@style/TextViewStyle"
+                style="@style/DetailTextViewStyle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ingredients_label_tv"
@@ -114,7 +114,7 @@
 
             <TextView
                 android:id="@+id/also_known_tv"
-                style="@style/TextViewStyle"
+                style="@style/DetailTextViewStyle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/also_known_label_tv"

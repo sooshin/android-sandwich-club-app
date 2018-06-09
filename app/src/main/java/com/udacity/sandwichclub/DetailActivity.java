@@ -68,10 +68,18 @@ public class DetailActivity extends AppCompatActivity {
         Toast.makeText(this, R.string.detail_error_message, Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     * Show sandwich details
+     * @param sandwich
+     */
     private void populateUI(Sandwich sandwich) {
+        // Get a reference to the also known TextView and also known label TextView
         TextView alsoKnownTv = findViewById(R.id.also_known_tv);
         TextView alsoKnownLabelTv = findViewById(R.id.also_known_label_tv);
+        // Get alsoKnownAs list of Strings
         List<String> alsoKnownList = sandwich.getAlsoKnownAs();
+        // If alsoKnownList is not null, append each String from the alsoKnownList to the TextView,
+        // otherwise hide the TextView
         if (alsoKnownList != null) {
             for (String alsoKnown: alsoKnownList) {
                 alsoKnownTv.append(alsoKnown + "\n");
@@ -81,9 +89,12 @@ public class DetailActivity extends AppCompatActivity {
             alsoKnownTv.setVisibility(View.GONE);
         }
 
+        // Get a reference to the origin TextView and origin label TextView
         TextView originTv = findViewById(R.id.origin_tv);
         TextView originLabelTv = findViewById(R.id.origin_label_tv);
+        // Get place of origin string
         String originString = sandwich.getPlaceOfOrigin();
+        // If origin string is not null, set the text to the origin TextView, otherwise hide the TextView
         if (originString != null) {
             originTv.setText(originString);
         } else {
@@ -91,11 +102,16 @@ public class DetailActivity extends AppCompatActivity {
             originTv.setVisibility(View.GONE);
         }
 
+        // Get a reference to the description TextView
         TextView descriptionTv = findViewById(R.id.description_tv);
+        // Set the Description String to the description TextView
         descriptionTv.setText(sandwich.getDescription());
 
+        // Get a reference to the ingredients TextView
         TextView ingredientsTv = findViewById(R.id.ingredients_tv);
+        // Get ingredients list of Strings
         List<String> ingredientsList = sandwich.getIngredients();
+        // If ingredientsList is not null, append each String from the ingredientsList to the TextView
         if (ingredientsList != null) {
             for (String ingredients: ingredientsList) {
                 ingredientsTv.append(ingredients + "\n");
