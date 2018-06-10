@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -154,12 +155,14 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     /**
-     * Sets Typeface
+     * Sets the typeface for the TextView
      */
     private void setTypeface() {
-        mRaleway = Typeface.createFromAsset(getAssets(), "Raleway-Regular.ttf");
-        mRighteous = Typeface.createFromAsset(getAssets(), "Righteous-Regular.ttf");
+        // Retrieves fonts by calling getFont method
+        mRaleway = ResourcesCompat.getFont(this, R.font.raleway_regular);
+        mRighteous = ResourcesCompat.getFont(this, R.font.righteous_regular);
 
+        // Sets the typeface for the TextViews
         mAlsoKnownTv.setTypeface(mRaleway);
         mOriginTv.setTypeface(mRaleway);
         mIngredientsTv.setTypeface(mRaleway);
