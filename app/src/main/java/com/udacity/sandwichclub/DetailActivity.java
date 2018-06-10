@@ -1,6 +1,7 @@
 package com.udacity.sandwichclub;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +21,22 @@ public class DetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_POSITION = "extra_position";
     private static final int DEFAULT_POSITION = -1;
+
+    /** TextViews for showing Sandwich details */
+    private TextView mAlsoKnownTv;
+    private TextView mOriginTv;
+    private TextView mDescriptionTv;
+    private TextView mIngredientsTv;
+
+    /** TextViews for showing the label */
+    private TextView mAlsoKnownLabelTv;
+    private TextView mOriginLabelTv;
+    private TextView mDescriptionLabelTv;
+    private TextView mIngredientsLabelTv;
+
+    /** Handles Typeface */
+    private Typeface mRaleway;
+    private Typeface mRighteous;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +66,11 @@ public class DetailActivity extends AppCompatActivity {
             return;
         }
 
+        // Initializes views
+        initViews();
+        // Sets typeface
+        setTypeface();
+        // Shows Sandwich details in each TextView
         populateUI(sandwich);
         Picasso.with(this)
                 .load(sandwich.getImage())
@@ -69,55 +91,84 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     /**
+     * Called from onCreate to initialize the views
+     */
+    private void initViews() {
+        // Get a reference to the also known TextView and also known label TextView
+        mAlsoKnownTv = findViewById(R.id.also_known_tv);
+        mAlsoKnownLabelTv = findViewById(R.id.also_known_label_tv);
+
+        // Get a reference to the origin TextView and origin label TextView
+        mOriginTv = findViewById(R.id.origin_tv);
+        mOriginLabelTv = findViewById(R.id.origin_label_tv);
+
+        // Get a reference to the description TextView and description label TextView
+        mDescriptionTv = findViewById(R.id.description_tv);
+        mDescriptionLabelTv = findViewById(R.id.description_label_tv);
+
+        // Get a reference to the ingredients TextView and ingredients label TextView
+        mIngredientsTv = findViewById(R.id.ingredients_tv);
+        mIngredientsLabelTv = findViewById(R.id.ingredients_label_tv);
+    }
+
+    /**
      * Show sandwich details
      * @param sandwich
      */
     private void populateUI(Sandwich sandwich) {
-        // Get a reference to the also known TextView and also known label TextView
-        TextView alsoKnownTv = findViewById(R.id.also_known_tv);
-        TextView alsoKnownLabelTv = findViewById(R.id.also_known_label_tv);
         // Get alsoKnownAs list of Strings
         List<String> alsoKnownList = sandwich.getAlsoKnownAs();
         // If alsoKnownList is not null, append each String from the alsoKnownList to the TextView,
         // otherwise hide the TextView
         if (alsoKnownList != null) {
             for (String alsoKnown: alsoKnownList) {
-                alsoKnownTv.append(alsoKnown + "\n");
+                mAlsoKnownTv.append(alsoKnown + "\n");
             }
         } else {
-            alsoKnownLabelTv.setVisibility(View.GONE);
-            alsoKnownTv.setVisibility(View.GONE);
+            mAlsoKnownLabelTv.setVisibility(View.GONE);
+            mAlsoKnownTv.setVisibility(View.GONE);
         }
 
-        // Get a reference to the origin TextView and origin label TextView
-        TextView originTv = findViewById(R.id.origin_tv);
-        TextView originLabelTv = findViewById(R.id.origin_label_tv);
         // Get place of origin string
         String originString = sandwich.getPlaceOfOrigin();
         // If origin string is not null, set the text to the origin TextView, otherwise hide the TextView
         if (originString != null) {
-            originTv.setText(originString);
+            mOriginTv.setText(originString);
         } else {
-            originLabelTv.setVisibility(View.GONE);
-            originTv.setVisibility(View.GONE);
+            mOriginLabelTv.setVisibility(View.GONE);
+            mOriginTv.setVisibility(View.GONE);
         }
 
-        // Get a reference to the description TextView
-        TextView descriptionTv = findViewById(R.id.description_tv);
         // Set the Description String to the description TextView
-        descriptionTv.setText(sandwich.getDescription());
+        mDescriptionTv.setText(sandwich.getDescription());
 
-        // Get a reference to the ingredients TextView
-        TextView ingredientsTv = findViewById(R.id.ingredients_tv);
         // Get ingredients list of Strings
         List<String> ingredientsList = sandwich.getIngredients();
         // If ingredientsList is not null, append each String from the ingredientsList to the TextView
         if (ingredientsList != null) {
             for (String ingredients: ingredientsList) {
-                ingredientsTv.append(ingredients + "\n");
+                mIngredientsTv.append(ingredients + "\n");
             }
         }
 
+    }
+
+    /**
+     * Sets Typeface
+     */
+    private void setTypeface() {
+        mRaleway = Typeface.createFromAsset(getAssets(), "Raleway-Regular.ttf");
+        mRighteous = Typeface.createFromAsset(getAssets(), "Righteous-Regular.ttf");
+
+        mAlsoKnownTv.setTypeface(mRaleway);
+        mOriginTv.setTypeface(mRaleway);
+        mIngredientsTv.setTypeface(mRaleway);
+        mDescriptionTv.setTypeface(mRaleway);
+
+        mAlsoKnownLabelTv.setTypeface(mRighteous);
+        mOriginLabelTv.setTypeface(mRighteous);
+        mIngredientsLabelTv.setTypeface(mRighteous);
+        mDescriptionLabelTv.setTypeface(mRighteous);
     }
 
     /**
