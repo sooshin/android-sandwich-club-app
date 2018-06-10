@@ -17,6 +17,7 @@
 package com.udacity.sandwichclub.utils;
 
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.udacity.sandwichclub.model.Sandwich;
 
@@ -108,7 +109,7 @@ public class JsonUtils {
         } catch (JSONException e) {
             // If an error is thrown when executing any of the above statements in the "try" block,
             // catch the exception here, so the app does not crash.
-            e.printStackTrace();
+            Log.e(TAG, "Problem parsing the Sandwich JSON results", e);
             return null;
         }
     }
