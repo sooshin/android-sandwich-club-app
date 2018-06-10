@@ -113,8 +113,8 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     /**
-     * Show sandwich details
-     * @param sandwich
+     * Called from onCreate to show sandwich details. Get Sandwich details and set the text to the TextView.
+     * @param sandwich Sandwich object
      */
     private void populateUI(Sandwich sandwich) {
         // Get alsoKnownAs list of Strings

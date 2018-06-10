@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
     private void launchDetailActivityTransition(int position, View view) {
         Intent intent = new Intent(this, DetailActivity.class);
         intent.putExtra(DetailActivity.EXTRA_POSITION, position);
+
         // Create the Bundle that creates the transition animation - the ListView in activity_main
         // and Coordinate Layout in activity_detail are defined with android:transitionName="move"
         Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 view,
                 getString(R.string.transition_move)
         ).toBundle();
+
         // start the new activity
         startActivity(intent, bundle);
     }

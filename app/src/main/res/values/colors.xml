@@ -9,7 +9,9 @@
     <color name="center_color_gradient">#00000000</color>
     <color name="end_color_gradient">#40000000</color>
 
+    <!-- Text color for the Sandwich label -->
     <color name="color_label_text">#FF8341</color>
+    <!-- Text color for the Sandwich detail -->
     <color name="color_detail_text">#5A267F</color>
 
     <!-- Background color for activity_main and activity_detail -->
