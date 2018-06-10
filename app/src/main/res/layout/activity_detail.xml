@@ -11,7 +11,7 @@
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar_layout"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="@dimen/height_appbar_layout"
         android:background="@color/colorPrimary">
 
         <android.support.design.widget.CollapsingToolbarLayout
@@ -20,7 +20,7 @@
             android:layout_height="match_parent"
             app:collapsedTitleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
             app:contentScrim="@color/colorPrimary"
-            app:expandedTitleMarginStart="72dp"
+            app:expandedTitleMarginStart="@dimen/margin_collapsing_toolbar"
             app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
@@ -31,7 +31,7 @@
                 <ImageView
                     android:id="@+id/image_iv"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="@dimen/height_image"
                     android:adjustViewBounds="true"
                     android:contentDescription="@string/sandwich_picture_content_description"
                     android:scaleType="centerCrop"
@@ -39,7 +39,7 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="@dimen/height_view"
                     android:background="@drawable/scrim_gradient" />
             </FrameLayout>
 
@@ -48,7 +48,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?android:attr/actionBarSize"
                 android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-                app:contentInsetStart="72dp"
+                app:contentInsetStart="@dimen/margin_toolbar"
                 app:layout_collapseMode="pin" />
 
         </android.support.design.widget.CollapsingToolbarLayout>
@@ -100,7 +100,7 @@
             <TextView
                 android:id="@+id/description_tv"
                 style="@style/DetailTextViewStyle"
-                android:layout_marginBottom="24dp"
+                android:layout_marginBottom="@dimen/margin_text_description"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

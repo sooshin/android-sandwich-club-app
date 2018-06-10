@@ -2,4 +2,12 @@
 <resources>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- dimensions for the activity_detail.xml -->
+    <dimen name="height_appbar_layout">200dp</dimen>
+    <dimen name="height_image">@dimen/height_appbar_layout</dimen>
+    <dimen name="height_view">@dimen/height_appbar_layout</dimen>
+    <dimen name="margin_collapsing_toolbar">72dp</dimen>
+    <dimen name="margin_toolbar">@dimen/margin_collapsing_toolbar</dimen>
+    <dimen name="margin_text_description">24dp</dimen>
 </resources>
