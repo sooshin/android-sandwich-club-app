@@ -1,7 +1,6 @@
 package com.udacity.sandwichclub.utils;
 
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.udacity.sandwichclub.model.Sandwich;
 
@@ -34,11 +33,9 @@ public class JsonUtils {
 
             // Extract the JSONObject associated with the key called "name"
             JSONObject name = baseJson.getJSONObject("name");
-            Log.d(TAG, "name: " + name);
 
             // For a given name, extract the value fro the key called "mainName"
             String mainName = name.getString("mainName");
-            Log.d(TAG, "mainName: " + mainName);
 
             // For a given name, extract the JSONArray associated with the key called "alsoKnownAs"
             JSONArray alsoKnownAsArray = name.getJSONArray("alsoKnownAs");
@@ -53,26 +50,21 @@ public class JsonUtils {
             } else {
                 alsoKnownAs = null;
             }
-            Log.d(TAG, "alsoKnownAs: " + alsoKnownAs);
 
             // Extract the value for the key called "placeOfOrigin"
             String placeOfOrigin = baseJson.getString("placeOfOrigin");
             if (placeOfOrigin.isEmpty()) {
                 placeOfOrigin = null;
             }
-            Log.d(TAG, "placeOfOrigin: " + placeOfOrigin);
 
             // Extract the value for the key called "description"
             String description = baseJson.getString("description");
-            Log.d(TAG, "description: " +description);
 
             // Extract the value for the key called "image"
             String imageUrl = baseJson.getString("image");
-            Log.d(TAG, "imageUrl: " +imageUrl);
 
             // Extract the JSONArray associated with the key "ingredients"
             JSONArray ingredientsArray = baseJson.getJSONArray("ingredients");
-            Log.d(TAG, "ingredientsArray: " + ingredientsArray);
 
             // Create an empty ArrayList
             List<String> ingredients = new ArrayList<>();
@@ -84,7 +76,6 @@ public class JsonUtils {
             } else {
                 ingredients = null;
             }
-            Log.d(TAG, "ingredients: " + ingredients);
 
             // Return the Sandwich object
             return new Sandwich(mainName, alsoKnownAs, placeOfOrigin, description, imageUrl, ingredients);
