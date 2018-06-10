@@ -16,6 +16,15 @@ public class JsonUtils {
     /** Tag for the log message */
     private static final String TAG = JsonUtils.class.getSimpleName();
 
+    /** Strings for the key associated with the JSON */
+    private static final String KEY_NAME = "name";
+    private static final String KEY_MAIN_NAME = "mainName";
+    private static final String KEY_ALSO_KNOWN_AS = "alsoKnownAs";
+    private static final String KEY_PLACE_OF_ORIGIN = "placeOfOrigin";
+    private static final String KEY_DESCRIPTION ="description";
+    private static final String KEY_IMAGE = "image";
+    private static final String KEY_INGREDIENTS = "ingredients";
+
     /**
      * Return a {@link Sandwich} Object that can be used to populate the UI by parsing the JSON
      */
@@ -32,13 +41,13 @@ public class JsonUtils {
             JSONObject baseJson = new JSONObject(json);
 
             // Extract the JSONObject associated with the key called "name"
-            JSONObject name = baseJson.getJSONObject("name");
+            JSONObject name = baseJson.getJSONObject(KEY_NAME);
 
             // For a given name, extract the value fro the key called "mainName"
-            String mainName = name.getString("mainName");
+            String mainName = name.getString(KEY_MAIN_NAME);
 
             // For a given name, extract the JSONArray associated with the key called "alsoKnownAs"
-            JSONArray alsoKnownAsArray = name.getJSONArray("alsoKnownAs");
+            JSONArray alsoKnownAsArray = name.getJSONArray(KEY_ALSO_KNOWN_AS);
 
             // Create an empty ArrayList
             List<String> alsoKnownAs = new ArrayList<>();
@@ -52,19 +61,19 @@ public class JsonUtils {
             }
 
             // Extract the value for the key called "placeOfOrigin"
-            String placeOfOrigin = baseJson.getString("placeOfOrigin");
+            String placeOfOrigin = baseJson.getString(KEY_PLACE_OF_ORIGIN);
             if (placeOfOrigin.isEmpty()) {
                 placeOfOrigin = null;
             }
 
             // Extract the value for the key called "description"
-            String description = baseJson.getString("description");
+            String description = baseJson.getString(KEY_DESCRIPTION);
 
             // Extract the value for the key called "image"
-            String imageUrl = baseJson.getString("image");
+            String imageUrl = baseJson.getString(KEY_IMAGE);
 
             // Extract the JSONArray associated with the key "ingredients"
-            JSONArray ingredientsArray = baseJson.getJSONArray("ingredients");
+            JSONArray ingredientsArray = baseJson.getJSONArray(KEY_INGREDIENTS);
 
             // Create an empty ArrayList
             List<String> ingredients = new ArrayList<>();

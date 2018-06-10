@@ -123,7 +123,7 @@ public class DetailActivity extends AppCompatActivity {
         // otherwise hide the TextView
         if (alsoKnownList != null) {
             for (String alsoKnown: alsoKnownList) {
-                mAlsoKnownTv.append(alsoKnown + "\n");
+                mAlsoKnownTv.append(alsoKnown + getString(R.string.new_line));
             }
         } else {
             mAlsoKnownLabelTv.setVisibility(View.GONE);
@@ -148,7 +148,7 @@ public class DetailActivity extends AppCompatActivity {
         // If ingredientsList is not null, append each String from the ingredientsList to the TextView
         if (ingredientsList != null) {
             for (String ingredients: ingredientsList) {
-                mIngredientsTv.append(ingredients + "\n");
+                mIngredientsTv.append(ingredients + getString(R.string.new_line));
             }
         }
 

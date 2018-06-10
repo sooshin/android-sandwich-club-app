@@ -130,4 +130,6 @@
 
     <!-- Transition name -->
     <string name="transition_move">move</string>
+    <!-- Split the string by new line -->
+    <string name="new_line">\n</string>
 </resources>
