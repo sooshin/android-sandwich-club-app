@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="DetailTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <!-- Enable window content transitions -->
+        <item name="android:windowContentTransitions">true</item>
+        <!-- The duration of window background fade in milliseconds -->
+        <item name="android:windowTransitionBackgroundFadeDuration">800</item>
+        <!-- Specify shared element transitions -->
+        <item name="android:windowSharedElementEnterTransition">@transition/move</item>
+    </style>
+</resources>

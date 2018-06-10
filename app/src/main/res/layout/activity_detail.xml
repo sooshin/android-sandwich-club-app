@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_background"
+    android:transitionName="@string/transition_move"
     tools:context="com.udacity.sandwichclub.DetailActivity">
 
     <android.support.design.widget.AppBarLayout
@@ -80,16 +81,16 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                style="@style/LabelTextViewStyle"
                 android:id="@+id/ingredients_label_tv"
+                style="@style/LabelTextViewStyle"
                 android:text="@string/detail_ingredients_label"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/origin_tv" />
 
             <TextView
-                style="@style/LabelTextViewStyle"
                 android:id="@+id/origin_label_tv"
+                style="@style/LabelTextViewStyle"
                 android:text="@string/detail_place_of_origin_label"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -122,8 +123,8 @@
                 tools:text="also known as" />
 
             <TextView
-                style="@style/LabelTextViewStyle"
                 android:id="@+id/description_label_tv"
+                style="@style/LabelTextViewStyle"
                 android:text="@string/detail_description_label"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"

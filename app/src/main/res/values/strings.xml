@@ -128,4 +128,6 @@
         </item>
     </string-array>
 
+    <!-- Transition name -->
+    <string name="transition_move">move</string>
 </resources>
