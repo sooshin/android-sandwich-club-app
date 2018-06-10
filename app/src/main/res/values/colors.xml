@@ -11,4 +11,7 @@
 
     <color name="color_label_text">#FF8341</color>
     <color name="color_detail_text">#5A267F</color>
+
+    <!-- Background color for activity_main and activity_detail -->
+    <color name="color_background">#FFF2E9</color>
 </resources>
