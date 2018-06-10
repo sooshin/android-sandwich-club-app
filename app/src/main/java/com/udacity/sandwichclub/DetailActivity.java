@@ -51,10 +51,6 @@ public class DetailActivity extends AppCompatActivity {
     private TextView mDescriptionLabelTv;
     private TextView mIngredientsLabelTv;
 
-    /** Handles Typeface */
-    private Typeface mRaleway;
-    private Typeface mRighteous;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -175,19 +171,19 @@ public class DetailActivity extends AppCompatActivity {
      */
     private void setTypeface() {
         // Retrieves fonts by calling getFont method
-        mRaleway = ResourcesCompat.getFont(this, R.font.raleway_regular);
-        mRighteous = ResourcesCompat.getFont(this, R.font.righteous_regular);
+        Typeface raleway = ResourcesCompat.getFont(this, R.font.raleway_regular);
+        Typeface righteous = ResourcesCompat.getFont(this, R.font.righteous_regular);
 
         // Sets the typeface for the TextViews
-        mAlsoKnownTv.setTypeface(mRaleway);
-        mOriginTv.setTypeface(mRaleway);
-        mIngredientsTv.setTypeface(mRaleway);
-        mDescriptionTv.setTypeface(mRaleway);
+        mAlsoKnownTv.setTypeface(raleway);
+        mOriginTv.setTypeface(raleway);
+        mIngredientsTv.setTypeface(raleway);
+        mDescriptionTv.setTypeface(raleway);
 
-        mAlsoKnownLabelTv.setTypeface(mRighteous);
-        mOriginLabelTv.setTypeface(mRighteous);
-        mIngredientsLabelTv.setTypeface(mRighteous);
-        mDescriptionLabelTv.setTypeface(mRighteous);
+        mAlsoKnownLabelTv.setTypeface(righteous);
+        mOriginLabelTv.setTypeface(righteous);
+        mIngredientsLabelTv.setTypeface(righteous);
+        mDescriptionLabelTv.setTypeface(righteous);
     }
 
     /**
