@@ -35,29 +35,48 @@ import com.udacity.sandwichclub.utils.JsonUtils;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class DetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_POSITION = "extra_position";
     private static final int DEFAULT_POSITION = -1;
 
-    /** TextViews for showing Sandwich details */
-    private TextView mAlsoKnownTv;
-    private TextView mOriginTv;
-    private TextView mDescriptionTv;
-    private TextView mIngredientsTv;
+    /** TextView for showing also known as */
+    @BindView(R.id.also_known_tv) TextView mAlsoKnownTv;
+    /** TextView for showing place of origin of the Sandwich */
+    @BindView(R.id.origin_tv) TextView mOriginTv;
+    /** TextView for showing description of the Sandwich */
+    @BindView(R.id.description_tv) TextView mDescriptionTv;
+    /** TextView for showing ingredients of the Sandwich */
+    @BindView(R.id.ingredients_tv) TextView mIngredientsTv;
 
-    /** TextViews for showing the label */
-    private TextView mAlsoKnownLabelTv;
-    private TextView mOriginLabelTv;
-    private TextView mDescriptionLabelTv;
-    private TextView mIngredientsLabelTv;
+    /** TextView for also known as label */
+    @BindView(R.id.also_known_label_tv) TextView mAlsoKnownLabelTv;
+    /** TextView for place of origin label */
+    @BindView(R.id.origin_label_tv) TextView mOriginLabelTv;
+    /** TextView for description label */
+    @BindView(R.id.description_label_tv) TextView mDescriptionLabelTv;
+    /** TextView for ingredients label */
+    @BindView(R.id.ingredients_label_tv) TextView mIngredientsLabelTv;
+
+    /** ImageView for Sandwich image */
+    @BindView(R.id.image_iv) ImageView mIngredientsIv;
+
+    /** Collapsing Toolbar Layout */
+    @BindView(R.id.collapsing_toolbar_layout) CollapsingToolbarLayout mCollapsingToolbar;
+
+    /** Toolbar */
+    @BindView(R.id.app_bar) Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        ImageView ingredientsIv = findViewById(R.id.image_iv);
+        // Bind the view using ButterKnife
+        ButterKnife.bind(this);
 
         Intent intent = getIntent();
         if (intent == null) {
@@ -80,21 +99,18 @@ public class DetailActivity extends AppCompatActivity {
             return;
         }
 
-        // Initializes views
-        initViews();
         // Sets typeface
         setTypeface();
         // Shows Sandwich details in each TextView
         populateUI(sandwich);
         Picasso.with(this)
                 .load(sandwich.getImage())
-                .into(ingredientsIv);
+                .into(mIngredientsIv);
 
-        ((CollapsingToolbarLayout) findViewById(R.id.collapsing_toobar_layout)).setTitle(sandwich.getMainName());
+        mCollapsingToolbar.setTitle(sandwich.getMainName());
 
         // Show back button in Collapsing Toolbar
-        Toolbar toolbar = findViewById(R.id.app_bar);
-        setSupportActionBar(toolbar);
+        setSupportActionBar(mToolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayShowHomeEnabled(true);
@@ -105,27 +121,6 @@ public class DetailActivity extends AppCompatActivity {
     private void closeOnError() {
         finish();
         Toast.makeText(this, R.string.detail_error_message, Toast.LENGTH_SHORT).show();
-    }
-
-    /**
-     * Called from onCreate to initialize the views
-     */
-    private void initViews() {
-        // Get a reference to the also known TextView and also known label TextView
-        mAlsoKnownTv = findViewById(R.id.also_known_tv);
-        mAlsoKnownLabelTv = findViewById(R.id.also_known_label_tv);
-
-        // Get a reference to the origin TextView and origin label TextView
-        mOriginTv = findViewById(R.id.origin_tv);
-        mOriginLabelTv = findViewById(R.id.origin_label_tv);
-
-        // Get a reference to the description TextView and description label TextView
-        mDescriptionTv = findViewById(R.id.description_tv);
-        mDescriptionLabelTv = findViewById(R.id.description_label_tv);
-
-        // Get a reference to the ingredients TextView and ingredients label TextView
-        mIngredientsTv = findViewById(R.id.ingredients_tv);
-        mIngredientsLabelTv = findViewById(R.id.ingredients_label_tv);
     }
 
     /**
