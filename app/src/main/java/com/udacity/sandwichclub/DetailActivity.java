@@ -24,6 +24,7 @@ import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -129,12 +130,12 @@ public class DetailActivity extends AppCompatActivity {
     private void populateUI(Sandwich sandwich) {
         // Get alsoKnownAs list of Strings
         List<String> alsoKnownList = sandwich.getAlsoKnownAs();
-        // If alsoKnownList is not null, append each String from the alsoKnownList to the TextView,
-        // otherwise hide the TextView
         if (alsoKnownList != null) {
-            for (String alsoKnown: alsoKnownList) {
-                mAlsoKnownTv.append(alsoKnown + getString(R.string.new_line));
-            }
+            // If alsoKnownList is not null, use TextUtils.join method that returns a string containing
+            // the tokens joined by delimiters.
+            String alsoKnown = TextUtils.join(getString(R.string.new_line), alsoKnownList);
+            // Set also known as String to the TextView
+            mAlsoKnownTv.setText(alsoKnown);
         } else {
             // If the alsoKnownList is null, show message so that the user can be aware of
             // the information availability
@@ -157,11 +158,12 @@ public class DetailActivity extends AppCompatActivity {
 
         // Get ingredients list of Strings
         List<String> ingredientsList = sandwich.getIngredients();
-        // If ingredientsList is not null, append each String from the ingredientsList to the TextView
         if (ingredientsList != null) {
-            for (String ingredients: ingredientsList) {
-                mIngredientsTv.append(ingredients + getString(R.string.new_line));
-            }
+            // If ingredientsList is not null, use TextUtils.join method that returns a string containing
+            // the tokens joined by delimiters.
+            String ingredients = TextUtils.join(getString(R.string.new_line), ingredientsList);
+            // Set ingredients String to the TextView
+            mIngredientsTv.setText(ingredients);
         }
 
     }
