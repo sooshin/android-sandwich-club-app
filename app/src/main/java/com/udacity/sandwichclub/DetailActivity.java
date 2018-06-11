@@ -24,7 +24,6 @@ import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -137,8 +136,9 @@ public class DetailActivity extends AppCompatActivity {
                 mAlsoKnownTv.append(alsoKnown + getString(R.string.new_line));
             }
         } else {
-            mAlsoKnownLabelTv.setVisibility(View.GONE);
-            mAlsoKnownTv.setVisibility(View.GONE);
+            // If the alsoKnownList is null, show message so that the user can be aware of
+            // the information availability
+            mAlsoKnownTv.setText(getString(R.string.message_not_available));
         }
 
         // Get place of origin string
@@ -147,8 +147,9 @@ public class DetailActivity extends AppCompatActivity {
         if (originString != null) {
             mOriginTv.setText(originString);
         } else {
-            mOriginLabelTv.setVisibility(View.GONE);
-            mOriginTv.setVisibility(View.GONE);
+            // If the alsoKnownList is null, show message so that the user can be aware of
+            // the information availability
+            mOriginTv.setText(getString(R.string.message_not_available));
         }
 
         // Set the Description String to the description TextView

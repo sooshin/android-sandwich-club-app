@@ -146,6 +146,10 @@
 
     <!-- Transition name -->
     <string name="transition_move">move</string>
+
     <!-- Split the string by new line -->
     <string name="new_line">\n</string>
+
+    <!-- Messages that make the user aware of the information unavailability -->
+    <string name="message_not_available">Message not available</string>
 </resources>
